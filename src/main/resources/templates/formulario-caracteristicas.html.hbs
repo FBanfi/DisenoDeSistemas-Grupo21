@@ -1,0 +1,60 @@
+{{# partial "titulo" }}
+    <title>PATITAS AL RESCATE - Crear nueva Caracterisitcas</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="pantallaCaracteristica" style="padding-left:50px;">
+
+        <div class="datos-formulario">
+            <form class="formulario" action="/caracteristicas" method="POST">
+                <h2>Crear nueva Caracteristica</h2>
+                {{#if errorCaracteristica}}
+                    <p class="texto-error">* Los datos de la caracteristica fueron cargados incorrectamente</p>
+                {{/if}}
+
+            <div class="campo">
+                <span class="nombre-campo">Nombre caracteristica:</span>
+                <input class="input-datos" type="text" name="nombre_caracteristica" placeholder="Ingrese nombre de caracteristica">
+            </div>
+            <div class="campo">
+                <span class="nombre-campo">Es obligatoria:</span>
+                <div>
+                    <input type="radio" name="obligatoriedad" value="true" checked>
+                    <label for="true">Si</label>
+                </div>
+
+                <div>
+                    <input type="radio" name="obligatoriedad" value="false">
+                    <label for="false">No</label>
+                </div>
+            </div>
+                <span class="nombre-campo">Criterio de validacion:</span>
+                <div class="campo">
+                    <input type="radio" name="validador" value="BOOLEANO" checked>
+                    <label for="BOOLEANO">Validador booleano</label>
+                </div>
+                <div class="campo">
+                    <input type="radio" name="validador" value="POSIBILIDADES">
+                    <label for="POSIBILIDADES" href="#posibilidades">Validador entre posibilidades</label>
+                    <input class="input-datos" type="text"  name="posibilidades" placeholder="Ingrese la posibilidades separadas por coma" href="#">
+                </div>
+                <div class="campo">
+                    <input type="radio" name="validador" value="CARACTERES">
+                    <label for="CARACTERES" href="#cantidadCaracteres">Validador cantidad caracteres</label>
+                    <input class="input-datos" type="number" min="0" name="cantidadCaracteres" placeholder="Ingrese la cantidad maxima de caracteres" href="#">
+                </div>
+                <div class="campo">
+                    <input type="radio" name="validador" value="VALORES">
+                    <label for="VALORES" href="#valores">Validador entre valores</label>
+                    <input class="input-datos" type="number" min="0" name="valorMin" placeholder="Ingrese la cantidad minima" href="#">
+                    <input class="input-datos" type="number" min="0" name="valorMax" placeholder="Ingrese la cantidad maxima" href="#">
+                </div>
+
+
+                <input type="submit" value="Crear caracteristica" class="BotonesSesion">
+            </form>
+        </div>
+    </section>
+{{/partial}}
+
+{{> layout.html.hbs }}

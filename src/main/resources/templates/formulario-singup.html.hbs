@@ -1,0 +1,81 @@
+{{# partial "titulo" }}
+    <title>PATITAS AL RESCATE - Login</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+
+    <section class="pantallaLogin" style="padding-left:50px;">
+
+        <div class="datos-formulario">
+            <h2>Crear cuenta</h2>
+
+            {{#if errorCuentaExistente}}
+                <p class="texto-error">* La cuenta ingresada ya existe</p>
+            {{/if}}
+            {{#if errorUsuario}}
+                <p class="texto-error">* Los datos del usuario fueron cargados incorrectamente</p>
+            {{/if}}
+            {{#if errorContrasenia}}
+                <p class="texto-error">* La contrasenia ingresada no es segura</p>
+            {{/if}}
+
+            <form class="formulario" action="/signup" method="POST">
+
+                <div class="datos-a-cargar-formulario">
+
+                    <div class="mitad-formulario">
+
+                        <div><span class="nombre-campo">Nombre de cuenta:</span></div>
+                        <div><input class="input-datos" type="text" name="nombre_cuenta" placeholder="Ingrese nombre de cuenta"></div>
+
+                        <div><span class="nombre-campo">Contraseña:</span></div>
+                        <div><input class="input-datos" type="password" name="contrasenia_cuenta" placeholder="Ingrese contraseña"></div>
+
+                        <div><span class="nombre-campo">Nombre:</span></div>
+                        <div><input class="input-datos" type="text" name="nombre_usuario" placeholder="Ingrese nombre"></div>
+
+                        <div><span class="nombre-campo">Apellido:</span></div>
+                        <div><input class="input-datos" type="text" name="apellido_usuario" placeholder="Ingrese apellido"></div>
+
+                    </div>
+
+                    <div class="mitad-formulario">
+                        <div> <span class="nombre-campo">Email:</span></div>
+                        <div><input class="input-datos" type="text" name="email_usuario" placeholder="Ingrese email"></div>
+
+                        <div><span class="nombre-campo">Direccion:</span></div>
+                        <div><input class="input-datos" type="text" name="direccion_usuario" placeholder="Ingrese nombre"></div>
+
+                        <div><span class="nombre-campo">Fecha de nacimiento:</span></div>
+                        <div><input class="input-datos" type="date" name="fecha_nacimiento_usuario" min="1900-01-01" max="2021-12-31"></div>
+
+                        <div><span class="nombre-campo">Numero Documento:</span></div>
+                        <div><input class="input-datos" type="text" name="documento_usuario" placeholder="Ingrese numero de documento"></div>
+                    </div>
+
+                    <div class="mitad-formulario">
+
+                        <div><span class="nombre-campo">Nombre de contacto:</span></div>
+                        <div><input class="input-datos" type="text" name="nombre_contacto" placeholder="Ingrese nombre de contacto"></div>
+
+                        <div><span class="nombre-campo">Apellido de contacto:</span></div>
+                        <div><input class="input-datos" type="text" name="apellido_contacto" placeholder="Ingrese apellido de contacto"></div>
+
+                        <div><span class="nombre-campo">Telefono de contacto:</span></div>
+                        <div><input class="input-datos" type="text" name="telefono_contacto" placeholder="Ingrese telefono de contacto"></div>
+
+                        <div><span class="nombre-campo">Email de contacto:</span></div>
+                        <div><input class="input-datos" type="text" name="email_contacto" placeholder="Ingrese email de contacto"></div>
+                    </div>
+                </div>
+
+                <div class="datos-a-cargar-formulario">
+                    <input class="BotonesSesion" type="submit" value="Crear cuenta">
+                </div>
+
+            </form>
+        </div>
+    </section>
+{{/partial}}
+
+{{> layout.html.hbs }}

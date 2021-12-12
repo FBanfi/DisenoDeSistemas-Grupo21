@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>ar.edu.utn.frba.dds</groupId>
+  <artifactId>patitas</artifactId>
+  <version>1.0</version>
+
+  <name>patitas</name>
+  <url>https://github.com/dds-utn</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId> org.uqbar-project </groupId>
+      <artifactId> jpa-java8-extras </artifactId>
+      <version> 1.0-alpha-1 </version>
+    </dependency>
+    <dependency>
+      <groupId> mysql </groupId>
+      <artifactId> mysql-connector-java </artifactId>
+      <version> 8.0.26 </version>
+    </dependency>
+    <dependency>
+      <groupId> org.hsqldb </groupId>
+      <artifactId> hsqldb </artifactId>
+      <version> 2.4.0 </version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.7.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>3.10.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>retrofit</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson -->
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>converter-gson</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>1.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.7.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-core</artifactId>
+      <version>2.9.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-template-handlebars</artifactId>
+      <version>2.7.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-template-velocity</artifactId>
+      <version>2.7.1</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.1.2</version>
+        <configuration>
+          <configLocation>google_checks.xml</configLocation>
+        </configuration>
+        <executions>
+          <execution>
+            <id>Validar Formateo</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.2</version>
+        <executions>
+          <execution>
+            <id>default-prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>Validar Cobertura</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <rule>
+                  <element>PACKAGE</element>
+                  <limits>
+                    <limit>
+                      <counter>LINE</counter>
+                      <value>COVEREDRATIO</value>
+                      <minimum>0.60</minimum>
+                    </limit>
+                  </limits>
+                </rule>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+
+      <!--
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+
+          <execution>
+            <id>server</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+              </descriptorRefs>
+              <archive>
+                <manifest>
+                  <mainClass>main.Routes</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+          </execution>
+
+
+
+        <execution>
+          <id>recomendacion</id>
+          <phase>package</phase>
+          <goals>
+            <goal>single</goal>
+          </goals>
+          <configuration>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+            <archive>
+              <manifest>
+                <mainClass>domain.notificacionesSemanales.Notificaciones</mainClass>
+              </manifest>
+            </archive>
+            <finalName>recomendacion</finalName>
+          </configuration>
+        </execution>
+
+      </executions>
+    </plugin>
+    -->
+
+    <plugin>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <executions>
+        <execution>
+          <phase>package</phase>
+          <goals>
+            <goal>single</goal>
+          </goals>
+        </execution>
+      </executions>
+      <configuration>
+        <archive>
+          <manifest>
+            <mainClass>main.Routes</mainClass>
+          </manifest>
+        </archive>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+      </configuration>
+    </plugin>
+
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.0.2</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals><goal>copy</goal></goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.github.jsimone</groupId>
+                  <artifactId>webapp-runner</artifactId>
+                  <version>8.5.31.0</version>
+                  <destFileName>webapp-runner.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

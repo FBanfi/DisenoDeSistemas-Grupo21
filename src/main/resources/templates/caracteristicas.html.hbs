@@ -1,0 +1,58 @@
+{{# partial "titulo" }}
+    <title>PATITAS AL RESCATE - Caracterisitcas</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+
+
+    <section style="padding-left:50px; padding-right:50px;">
+
+    <h2>Administracion caracteristicas</h2>
+        <table style="width:100%" id="cssTable">
+          <tr>
+            <th width="35%">Nombre</th>
+            <th>Obligatoriedad</th>
+            <th>Validacion</th>
+            <th>Eliminar</th>
+          </tr>
+        </table>
+
+        {{#caracteristicas}}
+            <form class="formCaracteristicas" action="/caracteristicas/borrar/{{id}}" method="POST">
+            <table  style="width:100%" id="cssTable">
+            <tr>
+                <td class="nombre-campo" width="35%"> {{nombreCaracteristica}}</td>
+                {{#if esObligatorio}}
+                    <td class="nombre-campo">Si</td>
+                {{else}}
+                    <td class="nombre-campo">No</td>
+                {{/if}}
+
+                {{#if validadorCaracteristica/inputBoolean}}
+                    <td class="nombre-campo">Booleano</td>
+                {{/if}}
+
+                {{#if validadorCaracteristica/inputEntreMaxMin}}
+                    <td class="nombre-campo">Entre max y min</td>
+                {{/if}}
+
+                {{#if validadorCaracteristica.inputEntrePosibilidades}}
+                    <td class="nombre-campo">Entre posibilidades</td>
+                {{/if}}
+
+                {{#if validadorCaracteristica.inputCantidadCaracteres}}
+                    <td class="nombre-campo">Cantidad Caracteres</td>
+                {{/if}}
+
+                <td><input type="submit" value="X" class="button1"></td>
+            </tr>
+            </table>
+            </form>
+        {{/caracteristicas}}
+
+        <a href="/caracteristicas/nueva"><button type="button" class="BotonesSesion">Agregar nueva caracteristica</button></a>
+    </section>
+
+{{/partial}}
+
+{{> layout.html.hbs }}

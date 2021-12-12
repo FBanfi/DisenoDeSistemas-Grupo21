@@ -1,0 +1,29 @@
+{{# partial "titulo" }}
+    <title>PATITAS AL RESCATE - Rescate</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="fondo-gris">
+        <h2>Encontre una mascota</h2>
+        <h2 style="font-size: 1.5em" align="center">Elija opcion de rescate</h2>
+
+        <table id="tablaHome" style="width: 60%" align="center">
+            <tr>
+                <td style="border-right:2px groove;">
+                    <p>Con chapita</p>
+                </td>
+                <td>
+                    <p>Sin chapita</p>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="/rescate/conChapita"><img src="/imagenes/ConChapita.png" class="FotoBotonHome" style="padding-right:30px;"></a></td>
+                <td><a href="/rescate/sinChapita"><img src="/imagenes/SinChapita.png" class="FotoBotonHome"></a></td>
+
+            </tr>
+        </table>
+
+    </section>
+{{/partial}}
+
+{{> layout.html.hbs }}

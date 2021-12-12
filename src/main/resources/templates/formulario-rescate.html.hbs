@@ -1,0 +1,146 @@
+{{# partial "titulo" }}
+    <title>PATITAS AL RESCATE - Rescate sin chapita</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="fondo-gris" style="padding-left:50px;">
+
+        <div class="datos-formulario">
+            <form class="formulario" action="/rescate" method="POST">
+
+                <div class="datos-a-cargar-formulario">
+                    <div class="mitad-formulario">
+                        <h2>Registrar datos de la mascota</h2>
+                        {{#if errorMascota}}
+                            <p class="texto-error">* Los datos de la mascota fueron cargados incorrectamente</p>
+                        {{/if}}
+                        {{#if errorCaracteristica}}
+                            <p class="texto-error">* Alguna de las caracteristicas fue cargada incorrectamente</p>
+                        {{/if}}
+
+
+                        <div><span class="nombre-campo">Sexo:</span></div>
+                        <div>
+                            <div class="radioAcostado">
+                                <input class="inputCaracteristicas" type="radio" class="radio" name="sexo" value="false" checked>
+                                <label for="false">Hembra</label>
+                            </div>
+
+                            <div class="radioAcostado">
+                                <input class="inputCaracteristicas" type="radio" class="radio" name="sexo" value="true">
+                                <label for="true">Macho</label>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="campo">
+                            <span class="nombre-campo">Caracteristicas de la mascota:</span>
+                            {{#caracteristicas}}
+                                <div>
+                                    <div><span class="nombre-campo">{{nombreCaracteristica}}:</span></div>
+                                    {{#if validadorCaracteristica/inputBoolean}}
+                                        <div class="radioAcostado">
+                                            <input type="radio" class="inputCaracteristicas" name="{{nombreCaracteristica}}" value="false" checked>
+                                            <label for="false">No</label>
+                                        </div>
+
+                                        <div class="radioAcostado">
+                                            <input type="radio" class="inputCaracteristicas" name="{{nombreCaracteristica}}" value="true">
+                                            <label for="true">Si</label>
+                                        </div>
+                                        <div class="clearfix"></div>
+
+                                    {{/if}}
+
+                                    {{#if validadorCaracteristica/inputEntreMaxMin}}
+                                        <input class="input-datos" type="number" class="inputCaracteristicas" name="{{nombreCaracteristica}}" min="{{validadorCaracteristica/minimo}}"
+                                               max="{{validadorCaracteristica/maximo}}"
+                                               placeholder="El valor debe estar entre {{validadorCaracteristica/minimo}} y {{validadorCaracteristica/maximo}}">
+                                    {{/if}}
+
+                                    {{#if validadorCaracteristica/inputEntrePosibilidades}}
+                                        {{#each validadorCaracteristica/posibilidades}}
+                                            <div>
+                                                <input type="radio" class="inputCaracteristicas" name="{{nombreCaracteristica}}" value="true">
+                                                <label for="true">{{this}}</label>
+                                            </div>
+                                        {{/each}}
+                                    {{/if}}
+
+                                    {{#if validadorCaracteristica/inputCantidadCaracteres}}
+                                        <input type="number" class="inputCaracteristicas" name="{{nombreCaracteristica}}" placeholder="Ingrese cantidad">
+                                    {{/if}}
+                                </div>
+                            {{/caracteristicas}}
+                        </div>
+                        <div class="campo">
+                            <div><span class="nombre-campo">Especie:</span></div>
+                            <div class="radioAcostado">
+                                <input type="radio" name="especie" value="GATO" checked>
+                                <label for="GATO">Gato</label>
+                            </div>
+
+                            <div class="radioAcostado">
+                                <input type="radio" name="especie" value="PERRO">
+                                <label for="PERRO">Perro</label>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+
+                        <div><span class="nombre-campo">Foto:</span></div>
+                        <div><input class="input-datos" type="text" name="foto" placeholder="Ingrese la URL de la foto"></div>
+
+                        <div><span class="nombre-campo">Descripcion:</span></div>
+                        <div><input class="input-datos" type="text" name="descripcion" placeholder="Ingrese descripcion"></div>
+
+                        <div><span class="nombre-campo">Ubicacion:</span></div>
+                        <div><input class="input-datos" type="text" name="ubicacion" placeholder="Ingrese la ubicacion"></div>
+
+                        <div><span class="nombre-campo">Latitud:</span></div>
+                        <div><input class="input-datos" type="text" name="latitud" placeholder="Ingrese la latitud"></div>
+
+                        <div><span class="nombre-campo">Longitud:</span></div>
+                        <div><input class="input-datos" type="text" name="longitud" placeholder="Ingrese la longitud"></div>
+
+                        <div><span class="nombre-campo">Fecha de rescate:</span></div>
+                        <div><input class="input-datos" type="date" name="fecha_rescaste" min="1900-01-01" max="2021-12-31"></div>
+                    </div>
+
+                    <div class="mitad-formulario">
+                        {{#if sesionSinIniciar}}
+
+                            <h2>Completa tus datos para poder contactarte:</h2>
+
+                            <div><span class="nombre-campo">Nombre:</span></div>
+                            <div><input class="input-datos" type="text" name="nombre_rescatista" placeholder="Ingrese nombre"></div>
+
+                            <div><span class="nombre-campo">Apellido:</span></div>
+                            <div><input class="input-datos" type="text" name="apellido_rescatista" placeholder="Ingrese apellido"></div>
+
+                            <div><span class="nombre-campo">Email:</span></div>
+                            <div><input class="input-datos" type="text" name="email_rescatista" placeholder="Ingrese email"></div>
+
+                            <div><span class="nombre-campo">Direccion:</span></div>
+                            <div><input class="input-datos" type="text" name="direccion_rescatista" placeholder="Ingrese direccion"></div>
+
+                            <div><span class="nombre-campo">Fecha de nacimiento:</span></div>
+                            <div><input class="input-datos" type="date" name="fecha_nacimiento_usuario" min="1900-01-01" max="2021-12-31"></div>
+
+                            <div><span class="nombre-campo">Numero Documento:</span></div>
+                            <div><input class="input-datos" type="text" name="documento_usuario" placeholder="Ingrese numero de documento"></div>
+                        {{/if}}
+                    </div>
+                </div>
+
+                <div class="datos-a-cargar-formulario">
+                    <input class="BotonesSesion" type="submit" value="Crear rescate">
+                </div>
+
+            </form>
+        </div>
+    </section>
+{{/partial}}
+
+{{> layout.html.hbs }}

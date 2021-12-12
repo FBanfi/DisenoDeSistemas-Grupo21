@@ -1,0 +1,23 @@
+{{# partial "titulo" }}
+    <title>PATITAS AL RECATE - Mascota {{nombre}}</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+ <section>
+     <div>
+         <span>Nombre:</span><span>{{nombre}}</span>
+     </div>
+     <div>
+         <span>Apodo:</span><span>{{apodo}}</span>
+     </div>
+     <div>
+         <span>Edad:</span><span>{{edad}}</span>
+     </div>
+     <div>
+         <span>Descripcion:</span><span>{{descripcion}}</span>
+     </div>
+     //TODO agregar fotos y sexo
+ </section>
+{{/partial}}
+
+{{> layout.html.hbs }}

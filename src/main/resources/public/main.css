@@ -1,0 +1,306 @@
+body {
+    margin: 0;
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    background: #f9f9f9;
+}
+
+img.fotoPatitas{
+}
+
+main {
+    margin: auto;
+    min-height: 80vh;
+    background: #f9f9f9;
+}
+
+h1 {
+    font-weight: 400;
+    height: 50px;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 400;
+    padding: 5px;
+    font-size: 2em;
+}
+
+.tituloPrincipal{
+    color: white;
+    text-align: center;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+}
+
+.fotoTitulo {
+    width: 250px;
+    cursor: pointer;
+}
+
+.FotoBotonHome{
+    width: 50%;
+    Margin: 20px;
+}
+
+.BotonesSesion{
+    margin: 25px 10px 15px 15px;
+    background-color: #fda533;
+    border: none;
+    color: #f9f9f9;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+.BotonesSesion:hover {
+    background-color: #feb630;
+}
+
+nav{
+    list-style: none;
+    height:75px;
+    padding:15px;
+    background: #e1c3ab;
+
+}
+.nombreCuenta {
+    display: inline-block;
+
+}
+
+.infoSesion {
+    float: right;
+}
+
+.clearfix{
+    clear: both;
+}
+
+footer{
+    background: #e1c3ab;
+    text-align: center;
+    padding: 30px;
+}
+
+.pantallaLogin{
+
+}
+
+td
+{
+    height: 50px;
+
+}
+
+.formulario{
+    width: 90%;
+}
+
+.formulario div{
+    padding: 10px;
+}
+
+.inputCaracteristicas{
+    margin-left: 30px !important;
+}
+
+.pantallaCaracteristica{
+    padding: 50px;
+    margin: 0 auto;
+    margin-left: 10px;
+}
+
+/* tabla estilo*/
+
+#cssTable, table {
+    border-style: hidden;
+    margin-bottom: 0px;
+    table-layout: fixed;
+
+}
+
+#cssTable th {
+    background-color: #ffc61a;
+    padding: 5px 15px;
+    color: #662b00;
+}
+
+#cssTable th:nth-child(even) {
+    background-color: #fdb633;
+}
+
+#cssTable td {
+    background-color: #f9f5f0;
+    text-align: center;
+    padding: 5px 15px;
+    color: #303030;
+    table-layout: fixed;
+}
+
+#cssTable td:nth-child(even) {
+    background-color: #f2f1f0;
+}
+
+/* fin tabla estilo*/
+
+#tablaHome td
+{
+    text-align: center;
+    align-content: center;
+    vertical-align: middle;
+}
+
+#tablaHome{
+    margin-bottom: 20px;
+}
+
+.button1 {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 9px;
+}
+.button1:hover {
+    background-color: #b30000;
+}
+#cantidadCaracteres{
+    display: none;
+}
+
+#cantidadCaracteres:target{
+    display: block;
+}
+
+#valores{
+    display: none;
+}
+
+#valores:target{
+    display: block;
+}
+
+.fotoPatitas{
+    height: auto;
+    width: 20px;
+    background: lightsalmon;
+}
+
+.fotoHome{
+    height: 130px;
+    width: 130px;
+}
+
+.radio{
+    float: left;
+    clear: none;
+    margin: 2px 0 0 2px;
+}
+
+input[type=radio],
+input.radio {
+    float: left;
+    clear: none;
+    margin: 2px 0 0 2px;
+}
+
+.radioAcostado {
+    float: left;
+    clear: none;
+}
+
+.botonNuevaCaracteristica{
+    margin-top: 20px;
+}
+
+.formCaracteristicas{
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.datos-mascota-todas{
+    margin: 40px;
+    padding: 10px;
+}
+
+.datos-mascota{
+    background-color: #fda533;
+    margin: 30px;
+    padding: 20px;
+    float: left;
+    border-radius: 15px;
+}
+
+.nombre-campo{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.datos-formulario{
+    background-color: #f2f1f0;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.mitad-formulario{
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    float: left;
+    position: relative;
+}
+
+.fondo-formulario{
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    position: relative;
+}
+
+.input-datos{
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+}
+
+.texto-error{
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: red;
+}
+
+.texto-secundario{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+}
+
+.bloque-boton{
+    margin: 25px 10px 15px 15px;
+    background-color: #fda533;
+    border: none;
+    color: #f9f9f9;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.datos-a-cargar-formulario{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

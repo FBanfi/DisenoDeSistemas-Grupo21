@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" 
+    version="2.0">
+
+    <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
+    	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>domain.asociacion.Asociacion</class>
+        <class>domain.asociacion.PreguntaSobreMascota</class>
+        <class>domain.mascota.CaracteristicaIdeal</class>
+        <class>domain.mascota.Mascota</class>
+        <class>domain.mascota.MascotaConChapita</class>
+        <class>domain.mascota.MascotaSinChapita</class>
+        <class>domain.mascota.Rescate</class>
+        <class>domain.publicaciones.Publicacion</class>
+        <class>domain.publicaciones.PublicacionAdopcion</class>
+        <class>domain.publicaciones.PublicacionInteresadoAdopcion</class>
+        <class>domain.publicaciones.PublicacionMascotaPerdida</class>
+        <class>domain.publicaciones.RespuestaSobreMascota</class>
+        <class>domain.usuario.Contacto</class>
+        <class>domain.usuario.Cuenta</class>
+        <class>domain.usuario.Usuario</class>
+        <class>domain.usuario.documento.TipoDocumento</class>
+        <class>domain.usuario.documento.Dni</class>
+        <class>domain.usuario.documento.Documento</class>
+        <class>domain.validacionContrasenia.Validaciones</class>
+        <class>domain.validacionContrasenia.ValidadorListaConstrasenias</class>
+        <class>domain.validacionContrasenia.ValidadorLongitud</class>
+        <class>domain.validacionContrasenia.ValidadorNombreContrasenia</class>
+        <class>domain.validacionCaracteristicas.CriterioDeValidacion</class>
+        <class>domain.validacionCaracteristicas.ValidadorBooleano</class>
+        <class>domain.validacionCaracteristicas.ValidadorEntrePosibilidades</class>
+        <class>domain.validacionCaracteristicas.ValidadorCantidadCaracteres</class>
+        <class>domain.validacionCaracteristicas.ValidadorEntreValores</class>
+
+        <properties>
+        <property name="hibernate.archive.autodetection" value="class"/>
+
+            <!--
+                     <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+                     <property name="hibernate.connection.url" value="jdbc:mysql://us-cdbr-east-04.cleardb.com:3306/heroku_798186d09520998" />
+                     <property name="hibernate.connection.username" value="ba42464c748c84" />
+                     <property name="hibernate.connection.password" value="29ef69cf" />
+        -->
+                     <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" />
+                     <property name="hibernate.connection.url" value="jdbc:mysql://us-cdbr-east-04.cleardb.com:3306/heroku_bfebf877d14f691" />
+                     <property name="hibernate.connection.username" value="b5d710bf0ba467" />
+                     <property name="hibernate.connection.password" value="3c23a1c1" />
+
+                     <!--
+                     <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+                     <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/tpa" />
+                     <property name="hibernate.connection.username" value="root" />
+                     <property name="hibernate.connection.password" value="123456" />
+                     -->
+
+            <property name="hibernate.show_sql" value="true" />
+            <!-- Enable the logging of all the generated SQL statements to the console -->
+
+            <property name="hibernate.format_sql" value="true" />
+            <!-- Format the generated SQL statement to make it more readable -->
+
+            <property name="use_sql_comments" value="true" />
+            <!-- Hibernate will put comments inside all generated SQL statements to hint what’s the generated SQL trying to do -->
+
+            <property name="hibernate.hbm2ddl.auto" value="none" />
+            <!--
+                - validate: validate the schema, makes no changes to the database.
+                - update: update the schema.
+                - create: creates the schema, destroying previous data.
+                - create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
+                - none: does nothing with the schema, makes no changes to the database
+             -->
+        </properties>
+          
+    </persistence-unit> 
+  
+</persistence>

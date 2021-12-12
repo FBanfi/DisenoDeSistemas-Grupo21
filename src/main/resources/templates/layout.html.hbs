@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link rel="stylesheet" href="css/styles.css">
+    {{# block "titulo" }}
+    {{/block}}
+</head>
+
+<body>
+
+    <nav>
+        <a href="/home"> <img src="/imagenes/PatitasTituloB.png" class="fotoTitulo"> </a>
+        <div class="infoSesion">
+        {{#if sesionIniciada}}
+
+            <span class="nombreCuenta">Iniciaste sesion como: {{nombreCuenta}} </span>
+            <a href="/logout"><button type="button" class="BotonesSesion">Cerrar Sesión</button></a>
+        {{else}}
+            <a href="/login?origin=/home"><button type="button"  class="BotonesSesion" >Iniciar Sesión</button></a>
+            <a href="/signup"><button type="button" class="BotonesSesion">Registrarse</button></a>
+        {{/if}}
+
+        {{#if esAdministrador}}
+            <a href="/caracteristicas"><button type="button" class="BotonesSesion" >Administrar caracteristicas</button></a>
+        {{/if}}
+        </div>
+    </nav>
+
+
+    <main>
+
+        {{# block "contenido" }}
+        {{/block}}
+    </main>
+    <footer class="footer">
+        Copyright 2021 PatitasAlRescate
+    </footer>
+</body>
+
+</html>

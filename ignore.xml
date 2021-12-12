@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <Match>
+        <Class name="domain.services.serviceHogares.Email" />
+        <Local name="email" />
+        <Bug pattern="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" />
+    </Match>
+    <Match>
+        <Class name="domain.services.serviceHogares.ListadoHogares" />
+        <Local name="offset" />
+        <Bug pattern="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" />
+    </Match>
+    <Match>
+        <Class name="domain.services.serviceHogares.ListadoHogares" />
+        <Local name="total" />
+        <Bug pattern="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" />
+    </Match>
+    <Match>
+        <Class name="domain.services.serviceHogares.TokenAPI" />
+        <Local name="bearer_token" />
+        <Bug pattern="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" />
+    </Match>
+</FindBugsFilter>

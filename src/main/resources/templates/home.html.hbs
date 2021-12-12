@@ -1,0 +1,33 @@
+
+{{# partial "titulo" }}
+    <title>PATITAS AL RESCATE - Home</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section>
+        <h1>
+            Elija una opcion
+        </h1>
+        <table id="tablaHome" style="width: 60%" align="center">
+            <tr>
+                <td style="border-right:2px groove;">
+                    <p>Registrar nueva mascota</p>
+                </td>
+                <td>
+                    <p>Encontre una mascota</p>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="/mascotas/nueva"><img src="/imagenes/RegistrarMascota.png" class="FotoBotonHome"></a></td>
+                <td><a href="/mascotas/encontrada"><img src="/imagenes/EncontreMascota.png" class="FotoBotonHome"></a></td>
+
+            </tr>
+        </table>
+        <div align="center">
+             <a href="/mascotas"><button type="button"  class="BotonesSesion">Ver mascotas</button></a>
+        </div>
+
+    </section>
+{{/partial}}
+
+{{> layout.html.hbs }}

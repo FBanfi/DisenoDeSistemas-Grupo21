@@ -1,0 +1,118 @@
+{{# partial "titulo" }}
+    <title>PATITAS AL RESCATE - Mascotas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+{{/partial}}
+
+{{# partial "contenido" }}
+
+    <section style="padding-left:50px; padding-right:50px;">
+
+        <h2>Mascotas</h2>
+            <!--
+        <table style="width:100%" id="cssTable" border="1">
+            <tr>
+                <th width="35%">Nombre</th>
+                <th>Apodo</th>
+                <th>Edad</th>
+                <th>Sexo</th>
+                <th>Especie</th>
+                <th>QR</th>
+                <th>Foto</th>
+            </tr>
+
+
+                <tr>
+                    <td class="nombre-campo" width="35%"> {{nombre}}</td>
+                    <td class="nombre-campo">{{apodo}}</td>
+                    <td class="nombre-campo">{{edad}}</td>
+                    <td class="nombre-campo">{{#if esMacho}} macho {{else}} hembra {{/if}}</td>
+                    <td class="nombre-campo">{{nombreEspecie}}</td>
+                    <td> <div width="15%" height="15%"  id="qrcode"></div>
+                        <script>
+                        window.addEventListener("load", function(){
+                          var qrc = new QRCode(document.getElementById("qrcode"), {
+                            text: "http://localhost:8080/mascotas/{{id}}",
+                            width: 50,
+                            height: 100,
+                            // QRCode.CorrectLevel.L | QRCode.CorrectLevel.M | QRCode.CorrectLevel.H
+                            correctLevel : QRCode.CorrectLevel.H
+                          });
+                        });
+                        </script>
+                    </td>
+                    <td class="nombre-campo" > <img src="{{foto}}" height= "100%"/> </td>
+<div class="bloque"> </div>
+                </tr>
+            -->
+
+            <div class="datos-mascotas-todas">
+            {{#mascotas}}
+
+                <div class="datos-mascota" >
+                    <div class="nombre-campo" > <img src="{{foto}}" height= "20%"/> </div>
+                    <br> <br>
+                    <div class="nombre-campo" > <b>Nombre</b>: {{nombre}}</div>
+                    <div class="nombre-campo"><b>Apodo</b>: {{apodo}}</div>
+                    <div class="nombre-campo"><b>Edad</b>: {{edad}}</div>
+                    {{#if esMacho}}
+                        <div class="nombre-campo"><b>Sexo</b>: macho</div>
+                    {{else}}
+                        <div class="nombre-campo"><b>Sexo</b>: hembra </div>
+                    {{/if}}
+                    <div class="nombre-campo"><b>Especie</b>: {{nombreEspecie}}</div>
+                    <!--
+                    <div class="nombre-campo" id="qrcode"><b>QR</b>
+                        <script>
+                        window.addEventListener("load", function(){
+                          var qrc = new QRCode(document.getElementById("qrcode"), {
+                            text: "http://localhost:8080/mascotas/{{id}}",
+                            width: 100,
+                            height: 100
+                          });
+                        });
+                        </script>-->
+                    <div class="nombre-campo">
+                        <!-- QR CODE HERE -->
+                        <div id="printable">
+                            <div class="qrcode"></div>
+                        </div>
+                        <button id="qrprint">PRINT</button>
+
+                        <!-- CREATE QR CODE ON PAGE LOAD -->
+
+                        <script>
+                            window.addEventListener("load", function(){
+                                // (1) CREATE QR
+                                var qrc = new QRCode(document.getElementsByClassName("qrcode"), {
+                                    text: "https://patitas-tpa-dds.herokuapp.com/home",
+                                    width: 100,
+                                    height: 100,
+                                    colorDark: "black"
+                                });
+
+                                // (2) PRINT
+                                document.getElementById("qrprint").addEventListener("click", function(){
+                                    var printwin = window.open("");
+                                    printwin.document.write(document.getElementById("printable").innerHTML);
+                                    printwin.stop();
+                                    let qr = printwin.document.querySelector("#qrcode img");
+                                    qr.addEventListener("load", function(){
+                                        printwin.print();
+                                        printwin.close();
+                                    });
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+
+            {{/mascotas}}
+            </div>
+
+
+        <!--</table>-->
+    </section>
+
+{{/partial}}
+
+{{> layout.html.hbs }}

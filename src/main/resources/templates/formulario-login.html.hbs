@@ -1,0 +1,32 @@
+
+{{# partial "titulo" }}
+<title>PATITAS AL RESCATE - Login</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+<section class="pantallaLogin" style="padding-left:50px;">
+
+    <div class="datos-formulario">
+        <h2>Iniciar Sesión</h2>
+
+        {{#if errorUsuarioYcontrasenia}}
+            <p class="texto-error">* La cuenta o la contrasenia ingresadas son incorrectas</p>
+        {{/if}}
+
+        <form class="formulario" action="/login?origin={{origen}}" method="POST">
+            <div><span class="nombre-campo">Nombre de usuario:</span></div>
+            <div><input class="input-datos" type="text" name="username" placeholder="Ingrese nombre de usuario"></div>
+
+            <div><span class="nombre-campo">Contraseña:</span></div>
+            <div><input class="input-datos" type="password" name="password" placeholder="Ingrese contraseña"></div>
+
+            <input type="submit" value="Iniciar Sesión" class="BotonesSesion">
+
+            <a class="texto-secundario" href="/signup"> ¿No tienes cuenta? <b>Registrate</b>  </a>
+        </form>
+    </div>
+
+</section>
+{{/partial}}
+
+{{> layout.html.hbs }}
